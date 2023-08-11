@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root">
+        </div>
+    </body>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+    <script type="text/babel">
+        function Btn( {text, fontSize = 16}) {//인자값을 안받았을때 기본값을 설정 가능 
+                                                //내부적으로 선언한것과 같은것
+        console.log("asd")
+            return <button 
+            style={{
+                backgroundColor: "tomato",
+                color: "white",
+                padding: "10px 10px",
+                borderRadius : 10
+            }}> {text}</button>
+        }
+        Btn.propTypes = {
+            text : PropTypes.string.isRequired,
+            fontSize : PropTypes.number.isRequired,
+        }
+        
+        //javascript 넣어야 할때 {} 사용한다.
+        function App() {
+           
+            return (
+                <div>
+                    <Btn text={"Save Changes"} fontSize={18}/>
+                    <Btn text={14} fontSize={"Continue"}/>    
+                </div>
+            )
+        }
+                
+        //react 18부터 형태가 좀 바뀌었다.
+        const root = document.getElementById("root")
+        ReactDOM.createRoot(root).render(<App/>)
+    </script>
+</html>

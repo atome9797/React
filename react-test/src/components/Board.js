@@ -5,9 +5,11 @@ import "./Square.css";
 class Board extends Component {
     
     renderSquare(i) {
+        //랜더링하는 부분을 지정하여 사용할수 있다.
         return <Square value={i}/>
     }
     
+    //랜더링 될때 해당 함수를 호출한다.
     render() {
         return (
             <div>
